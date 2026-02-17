@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteção de Dados - LGPD</title>
+    <link rel="stylesheet" href="../lgpd.css">
+</head>
+
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <h1>PROTEÇÃO DE DADOS PESSOAIS</h1>
+        <p class="subtitle">Conformidade com a LGPD e segurança das informações</p>
+    </header>
+
+    <!-- LGPD -->
+    <section>
+        <h2>LEI GERAL DE PROTEÇÃO DE DADOS (LGPD)</h2>
+        <p>
+            A Lei nº 13.709/2018 (LGPD) estabelece regras sobre coleta, armazenamento,
+            tratamento e compartilhamento de dados pessoais, garantindo maior proteção
+            aos titulares.
+        </p>
+
+        <div class="lgpd-principles">
+            <div class="principle-card">
+                <div class="principle-title">Finalidade</div>
+                <p>Os dados são coletados para fins legítimos e informados.</p>
+            </div>
+
+            <div class="principle-card">
+                <div class="principle-title">Transparência</div>
+                <p>O titular tem acesso claro às informações sobre seus dados.</p>
+            </div>
+
+            <div class="principle-card">
+                <div class="principle-title">Necessidade</div>
+                <p>Apenas dados essenciais são tratados.</p>
+            </div>
+
+            <div class="principle-card">
+                <div class="principle-title">Segurança</div>
+                <p>Medidas técnicas protegem os dados contra acessos indevidos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIREITOS -->
+    <section class="lgpd-requirements">
+        <h3>Direitos dos Titulares</h3>
+        <ul class="requirements-list">
+            <li>Confirmação do tratamento</li>
+            <li>Acesso aos dados</li>
+            <li>Correção de dados</li>
+            <li>Anonimização ou exclusão</li>
+            <li>Portabilidade</li>
+            <li>Revogação do consentimento</li>
+        </ul>
+    </section>
+
+    <!-- TIPOS DE DADOS -->
+    <section class="data-types">
+        <h3>Categorias de Dados</h3>
+
+        <div class="data-category">
+            <div class="info-title">Dados Pessoais</div>
+            <p>Nome, CPF, telefone, e-mail, endereço, etc.</p>
+        </div>
+
+        <div class="data-category">
+            <div class="info-title">Dados Sensíveis</div>
+            <p>Religião, saúde, biometria, dados genéticos.</p>
+        </div>
+
+        <div class="data-category">
+            <div class="info-title">Dados Anonimizados</div>
+            <p>Dados que não permitem identificação do titular.</p>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section >
+        <h2>Canais de Contato – LGPD</h2>
+
+       <div class="contact-section">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-title">Encarregado de Proteção de Dados (DPO)</div>
+                        <p>Joana Silva<br>Email: dpo@empresa.com.br<br>Telefone: (11) 99999-9999</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-title">Canal Exclusivo LGPD</div>
+                        <p>Email: lgpd@empresa.com.br<br>Telefone: 0800 123 4567<br>Horário: 9h às 18h (dias úteis)</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-title">Endereço para Correspondência</div>
+                        <p>Av. Paulista, 1000 - 10º andar<br>Bela Vista, São Paulo - SP<br>CEP: 01310-100</p>
+                    </div>
+                </div>
+
+        <!-- FORMULÁRIO -->
+        <div class="contact-form">
+                    <h3>Formulário de Contato</h3>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="required-field">Nome Completo</label>
+                            <input type="text" id="name" name="name" required oninput="validateContactForm()">
+                            <div class="error-message" id="name-error">Por favor, preencha seu nome completo</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="required-field">E-Mail</label>
+                            <input type="email" id="email" name="email" required oninput="validateContactForm()">
+                            <div class="error-message" id="email-error">Por favor, preencha um e-mail válido</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="required-field">Assunto</label>
+                            <select id="subject" name="subject" required onchange="validateContactForm()">
+                                <option value="">Selecione um assunto</option>
+                                <option value="direitos">Exercer meus direitos LGPD</option>
+                                <option value="dados">Acesso aos meus dados pessoais</option>
+                                <option value="revogacao">Revogação de consentimento</option>
+                                <option value="violacao">Relatar violação de dados</option>
+                                <option value="duvida">Dúvida sobre tratamento de dados</option>
+                                <option value="outro">Outro assunto</option>
+                            </select>
+                            <div class="error-message" id="subject-error">Por favor, selecione um assunto</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description" class="required-field">Descrição</label>
+                            <textarea id="description" name="description" placeholder="Descreva sua solicitação ou dúvida em detalhes..." required oninput="validateContactForm()"></textarea>
+                            <div class="error-message" id="description-error">Por favor, descreva sua solicitação</div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required onchange="validateContactForm()">
+                            <label for="terms">Declaro que li e concordo com os <a href="../Termo_de_uso/termo.html" target="_blank" rel="noopener noreferrer">Termos de Uso</a> e <a href="../politica/politica.html"target="_blank" rel="noopener noreferrer">Política de Privacidade</a> da empresa, e autorizo o tratamento dos meus dados pessoais para a finalidade específica desta solicitação, conforme estabelecido pela LGPD.</label>
+                        </div>
+                        <a href="../../Menu/index.html"><button type="submit" id="submit-button" class="btn" disabled>Enviar Solicitação</button></a>
+                    </form>
+                        
+                </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-note">
+        © 2023 Empresa XYZ – Lei nº 13.709/2018 (LGPD)
+    </footer>
+
+</div>
+<!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+<script>
+function validateContactForm() {
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const subject = subjectInput.value;
+    const description = descriptionInput.value.trim();
+    const terms = termsInput.checked;
+
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    document.getElementById('submit-button').disabled =
+        !(name && emailValid && subject && description && terms);
+}
+
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const subjectInput = document.getElementById('subject');
+const descriptionInput = document.getElementById('description');
+const termsInput = document.getElementById('terms');
+
+document.querySelectorAll('input, select, textarea')
+    .forEach(el => el.addEventListener('input', validateContactForm));
+
+document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Solicitação enviada com sucesso!');
+    window.location.href = "../../Menu/index.html";
+});
+</script>
+
+</body>
+</html>

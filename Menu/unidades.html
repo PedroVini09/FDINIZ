@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../unidades/unidades.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Laboratório F. Diniz</title>
+</head>
+<body>
+<!-- HEADER -->
+    <header>
+        <div class="interface">
+
+            <div class="logo">
+                <a href="../index.html"><img src="../Imagem/logotipo_labfdiniz.png" alt="Logo Laboratório F. Diniz"></a>
+            </div>
+
+           <ul class="menu-icons">
+    <li>
+        <a href="../Menu/historia.html"><i class="fa-solid fa-book-medical"></i><span>Nossa História</span></a>
+    </li>
+
+    <li>
+        <a href="../Menu/unidades.html"><i class="fa-solid fa-building"></i><span>Unidades</span></a>
+    </li>
+
+    <li>
+        <a href="../centro_medica/centro.html"><i class="fa-solid fa-hospital"></i><span>Centro Médico</span></a>
+    </li>
+
+    <li>
+        <a href="../Fdiniz_kids/fdiniz_kids.html"><i class="fa-solid fa-child-reaching"></i><span>Fdiniz Kids</span></a>
+    </li>
+
+     <li>
+         <a href="https://fdiniz.shiftcloud.com.br/shift/lis/fdiniz/elis/s01.iu.web.Login.cls"
+             target="_blank" rel="noopener noreferrer">
+             <i class="fa-solid fa-file-medical"></i>
+              <span>Resultados</span>
+         </a>
+    </li>
+
+
+    <!-- CONTATO -->
+    <li class="dropdown">
+        <a href="#"><i class="fa-solid fa-envelope"></i><span>Contato</span></a>
+
+        <ul class="dropdown-menu">
+            <li><a href="#">LGPD</a></li>
+            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="#">Trabalhe Conosco</a></li>
+        </ul>
+    </li>
+</ul>
+
+
+            <div class="btn-contato">
+                <a href="#">
+                    <button><i class="fa-solid fa-headset"></i>  Suporte</button>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- HERO UNIDADES -->
+    <section class="hero-unidades">
+        <div class="interface">
+            <div class="hero-content">
+                <h1>ESTAMOS CADA VEZ MAIS PERTO DE VOCÊ</h1>
+                <p class="hero-subtitle">11 unidades espalhadas por Campina Grande e região para melhor atendê-lo</p>
+                <div class="hero-search">
+                    <div class="region-filter">
+                        <label for="regiao"><i class="fa-solid fa-map-marker-alt"></i> Escolha uma região:</label>
+                        <select id="regiao">
+                            <option value="">Todas as regiões</option>
+                            <option value="centro">Centro</option>
+                            <option value="catole">Catolé</option>
+                            <option value="malvinas">Malvinas</option>
+                            <option value="liberdade">Liberdade</option>
+                            <option value="inga">Ingá</option>
+                            <option value="prata">Prata</option>
+                            <option value="queimadas">Queimadas</option>
+                            <option value="sao-jose">São José da Mata</option>
+                            <option value="bezerra-carvalho">Bezerra Carvalho</option>
+                        </select>
+                        <button id="btn-filtrar" class="btn-filtrar">
+                            <i class="fa-solid fa-filter"></i> Filtrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA ESTÁTICO -->
+    <section class="mapa-estatico">
+        <div class="interface">
+            <div class="mapa-container">
+                <h2><i class="fa-solid fa-map-location-dot"></i> Nossas Unidades no Mapa</h2>
+                <div class="mapa-imagem">
+                    <img src="../Imagem/mapa.jpg" alt="Mapa das Unidades F. Diniz">
+                </div>
+                <div class="mapa-legenda">
+                    <div class="legenda-item">
+                        <span class="legenda-cor" style="background: #0a4fff;"></span>
+                        <span>Unidades com atendimento integral</span>
+                    </div>
+                    <div class="legenda-item">
+                        <span class="legenda-cor" style="background: #00a859;"></span>
+                        <span>Unidades com coleta domiciliar</span>
+                    </div>
+                    <div class="legenda-item">
+                        <span class="legenda-cor" style="background: #ff6b00;"></span>
+                        <span>Policlínicas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LISTA DE UNIDADES -->
+    <section class="lista-unidades-section">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-building"></i> UNIDADES F.DINIZ</h2>
+                <p class="section-subtitle">Encontre a unidade mais próxima de você</p>
+            </div>
+            
+            <div class="unidades-grid" id="unidades-container">
+                <!-- As unidades serão carregadas aqui via JavaScript -->
+            </div>
+            
+            <div class="sem-resultados" id="sem-resultados" style="display: none;">
+                <i class="fa-solid fa-map-marker-alt"></i>
+                <h3>Nenhuma unidade encontrada</h3>
+                <p>Tente selecionar outra região ou volte para "Todas as regiões"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA CENTRAL -->
+    <section class="cta-unidades">
+        <div class="interface">
+            <div class="cta-content">
+                <div class="cta-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h2>Encontrou a unidade ideal para você?</h2>
+                <p>Se ainda tiver dúvidas sobre qual unidade atende melhor suas necessidades, nossa equipe está pronta para ajudar.</p>
+                <div class="cta-buttons">
+                    <a href="tel:+558333157373" class="btn-cta">
+                        <i class="fa-solid fa-phone"></i> Central: (83) 3315-7373
+                    </a>
+                    <a href="https://wa.me/558333157373" class="btn-cta whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- RODAPÉ -->
+   <footer class="rodape">
+    <div class="interface">
+        <div class="rodape-grid">
+            <!-- LOGO -->
+            <div class="rodape-coluna">
+                <img src="../Imagem/logotipo_labfdiniz.png" alt="Laboratório F. Diniz" class="logo-rodape">
+                <p>
+                    Cuidando da sua saúde com excelência, confiança e transparência.
+                    Referência em exames laboratoriais e atendimento humanizado.
+                </p>
+            </div>
+
+            <!-- MENU INSTITUCIONAL -->
+            <div class="rodape-coluna">
+                <h3>Institucional</h3>
+                <ul class="rodape-menu">
+                    <li><a href="../Menu/historia.html">Nossa História</a></li>
+                    <li><a href="../Menu/unidades.html">Unidades</a></li>
+                    <li><a href="../centro_medica/centro.html">Centro Médico</a></li>
+                    <li><a href="../Fdiniz_kids/fdiniz_kids.html">F.Diniz Kids</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTATO -->
+            <div class="rodape-coluna">
+                <h3>Contato</h3>
+                <ul class="rodape-contato">
+                    <li>
+                        <a href="tel:+558333157373">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(83) 3315-7373</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/558333157373" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>(83) 3315-7373</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contato@laboratoriodiniz.com.br">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@laboratoriodiniz.com.br</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rodape-copy">
+            <p>© 2025 Laboratório F. Diniz — Todos os direitos reservados</p>
+        </div>
+    </div>
+</footer>
+  <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="../JS/unidades.js"></script>
+</body>
+</html>
+    

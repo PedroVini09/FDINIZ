@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Agendar_Exame/agendar_exames.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Agendamento de Exames - Laboratório F. Diniz</title>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="interface">
+            <div class="logo">
+                <a href="../Menu/index.html"><img src="../Imagem/logotipo_labfdiniz.png" alt="Logo F. Diniz"></a>
+            </div>
+            <ul class="menu-icons">
+                <li><a href="../Menu/historia.html"><i class="fa-solid fa-book-medical"></i><span>Nossa História</span></a></li>
+                <li><a href="../Menu/unidades.html"><i class="fa-solid fa-building"></i><span>Unidades</span></a></li>
+                <li><a href="../Menu/centro-medico.html"><i class="fa-solid fa-hospital"></i><span>Centro Médico</span></a></li>
+                <li><a href="../Menu/fdiniz-kids.html"><i class="fa-solid fa-child-reaching"></i><span>Fdiniz Kids</span></a></li>
+                <li><a href="../Menu/exames.html" class="ativo"><i class="fa-solid fa-flask-vial"></i><span>Exames</span></a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fa-solid fa-envelope"></i><span>Contato</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">LGPD</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="btn-contato">
+                <a href="tel:+558333157373">
+                    <button><i class="fa-solid fa-headset"></i> Central de Exames</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO EXAMES -->
+    <section class="hero-exames">
+        <div class="interface">
+            <div class="hero-content">
+                <h1><i class="fa-solid fa-flask-vial"></i> AGENDAMENTO DE EXAMES</h1>
+                <p class="hero-subtitle">Encontre o exame que você precisa e agende de forma rápida e prática</p>
+                <div class="hero-search">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search-exame" placeholder="Buscar exame por nome ou código...">
+                        <button class="btn-search" id="btn-search">
+                            <i class="fa-solid fa-search"></i> Buscar
+                        </button>
+                    </div>
+                    <div class="search-filters">
+                        <button class="filter-btn active" data-filter="todos">Todos os Exames</button>
+                        <button class="filter-btn" data-filter="sangue">Exames de Sangue</button>
+                        <button class="filter-btn" data-filter="imagem">Exames de Imagem</button>
+                        <button class="filter-btn" data-filter="urina">Exames de Urina</button>
+                        <button class="filter-btn" data-filter="fezes">Exames de Fezes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TABELA DE EXAMES -->
+    <section class="tabela-exames">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-list-alt"></i> CATÁLOGO DE EXAMES</h2>
+                <p class="section-subtitle">Consulte abaixo nossa lista completa de exames disponíveis</p>
+            </div>
+
+            <div class="table-controls">
+                <div class="controls-left">
+                    <div class="show-entries">
+                        <span>Mostrar:</span>
+                        <select id="entries-per-page">
+                            <option value="10">10</option>
+                            <option value="25" selected>25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <span>exames por página</span>
+                    </div>
+                </div>
+                <div class="controls-right">
+                    <button class="btn-export" id="btn-export-pdf">
+                        <i class="fa-solid fa-file-pdf"></i> Exportar PDF
+                    </button>
+                    <button class="btn-print" id="btn-print">
+                        <i class="fa-solid fa-print"></i> Imprimir
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="exames-table" id="exames-table">
+                    <thead>
+                        <tr>
+                            <th class="sortable" data-sort="nome">
+                                <span>Nome do Exame</span>
+                                <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th class="sortable" data-sort="codigo">
+                                <span>Código</span>
+                                <i class="fa-solid fa-sort"></i>
+                            </th>
+                            <th>Material</th>
+                            <th>Método</th>
+                            <th>Preparo</th>
+                            <th>Prazo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exames-body">
+                        <!-- Exames serão carregados via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <div class="pagination-info" id="pagination-info">
+                    Mostrando 1 a 25 de 200 exames
+                </div>
+                <div class="pagination" id="pagination">
+                    <!-- Paginação será gerada via JavaScript -->
+                </div>
+            </div>
+
+            <!-- LEGENDA -->
+            <div class="table-legend">
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #e8f7ed;"></span>
+                    <span>Exame com preparo especial</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #fff0e6;"></span>
+                    <span>Exame com jejum obrigatório</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background-color: #f0f7ff;"></span>
+                    <span>Exame disponível em todas as unidades</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO AGENDAR EXAMES -->
+    <section class="como-agendar">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-calendar-check"></i> COMO AGENDAR SEUS EXAMES</h2>
+                <p class="section-subtitle">Processo simples e rápido para seu conforto</p>
+            </div>
+
+            <div class="agendamento-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fa-solid fa-file-prescription"></i>
+                    </div>
+                    <h3>Tenha sua Requisição</h3>
+                    <p>Obtenha a requisição médica com os exames solicitados</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <h3>Ligue para Agendar</h3>
+                    <p>Contate nossa central no (83) 3315-7373</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fa-solid fa-calendar-day"></i>
+                    </div>
+                    <h3>Escolha Data/Horário</h3>
+                    <p>Selecione a unidade e horário mais conveniente</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fa-solid fa-flask"></i>
+                    </div>
+                    <h3>Realize o Exame</h3>
+                    <p>Compareça no dia agendado com seus documentos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREPAROS IMPORTANTES -->
+    <section class="preparos-importantes">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-exclamation-circle"></i> PREPAROS IMPORTANTES</h2>
+                <p class="section-subtitle">Informações essenciais para seus exames</p>
+            </div>
+
+            <div class="preparos-grid">
+                <div class="preparo-card">
+                    <div class="preparo-icon">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3>Jejum</h3>
+                    <p>Alguns exames exigem jejum de 8 a 12 horas. Consulte qual o tempo necessário para seu exame específico.</p>
+                </div>
+                <div class="preparo-card">
+                    <div class="preparo-icon">
+                        <i class="fa-solid fa-prescription-bottle"></i>
+                    </div>
+                    <h3>Medicações</h3>
+                    <p>Informe sobre medicamentos em uso. Alguns podem interferir nos resultados dos exames.</p>
+                </div>
+                <div class="preparo-card">
+                    <div class="preparo-icon">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h3>Restrições</h3>
+                    <p>Evite álcool 72h antes e fumo 24h antes da coleta de sangue. Alguns exames têm restrições específicas.</p>
+                </div>
+                <div class="preparo-card">
+                    <div class="preparo-icon">
+                        <i class="fa-solid fa-file-medical"></i>
+                    </div>
+                    <h3>Documentação</h3>
+                    <p>Leve documento com foto, requisição médica e carteirinha do convênio (se houver).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXAMES MAIS SOLICITADOS -->
+    <section class="exames-populares">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-star"></i> EXAMES MAIS SOLICITADOS</h2>
+                <p class="section-subtitle">Confira os exames mais comuns em nosso laboratório</p>
+            </div>
+
+            <div class="exames-cards" id="exames-populares">
+                <!-- Exames populares serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ EXAMES -->
+    <section class="faq-exames">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-question-circle"></i> DÚVIDAS FREQUENTES SOBRE EXAMES</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre exames laboratoriais</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Preciso de requisição médica para todos os exames?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim, a maioria dos exames laboratoriais exige requisição médica. Alguns exames de check-up básico podem ser realizados sem requisição, mas recomendamos sempre a orientação médica.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Posso fazer vários exames no mesmo dia?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim, na maioria dos casos é possível realizar vários exames na mesma coleta. No entanto, alguns exames têm preparos específicos que podem interferir. Consulte nossa central para orientações.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Quanto tempo demora para sair o resultado?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>O prazo varia conforme o exame. Exames de rotina geralmente ficam prontos em 24-48h. Exames mais complexos podem levar até 15 dias. Consulte o prazo específico de cada exame em nossa tabela.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Como recebo meus resultados?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Os resultados podem ser retirados pessoalmente na unidade, enviados por e-mail (se solicitado) ou acessados através do nosso portal online. Também disponibilizamos no aplicativo F. Diniz.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>O laboratório faz coleta domiciliar?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim! Oferecemos serviço de coleta domiciliar para exames de rotina. Entre em contato com nossa central para verificar disponibilidade na sua região e agendar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- RODAPÉ -->
+<footer class="rodape">
+    <div class="interface">
+        <div class="rodape-grid">
+            <!-- LOGO E REDES SOCIAIS -->
+            <div class="rodape-coluna">
+                <img src="../Imagem/logotipo_labfdiniz.png" alt="Laboratório F. Diniz" class="logo-rodape">
+                <p>
+                    Cuidando da sua saúde com excelência, confiança e transparência.
+                    Referência em exames laboratoriais e atendimento humanizado.
+                </p>
+                
+                <!-- REDES SOCIAIS MANUALMENTE -->
+                <div class="rodape-redes">
+                    <a href="https://www.facebook.com/LaboratorioFDiniz/?locale=pt_BR" 
+                       class="rede-social facebook" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       title="Siga-nos no Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/laboratoriofdiniz/" 
+                       class="rede-social instagram" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       title="Siga-nos no Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/laborat%C3%B3rio-f.diniz/about/" 
+                       class="rede-social linkedin" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       title="Conecte-se no LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@LabFDiniz" 
+                       class="rede-social youtube" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       title="Inscreva-se no YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- MENU INSTITUCIONAL -->
+            <div class="rodape-coluna">
+                <h3>Institucional</h3>
+                <ul class="rodape-menu">
+                    <li><a href="../Menu/historia.html">Nossa História</a></li>
+                    <li><a href="#">Unidades</a></li>
+                    <li><a href="#">Centro Médico</a></li>
+                    <li><a href="#">F.Diniz Kids</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTATO -->
+            <div class="rodape-coluna">
+                <h3>Contato</h3>
+                <ul class="rodape-contato">
+                    <li>
+                        <a href="tel:+558333157373">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(83) 3315-7373</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/558333157373" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>(83) 3315-7373</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contato@laboratoriodiniz.com.br">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@laboratoriodiniz.com.br</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rodape-copy">
+            <p>© 2025 Laboratório F. Diniz — Todos os direitos reservados</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- MODAL DETALHES DO EXAME -->
+    <div class="modal-exame" id="modal-exame">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Detalhes do Exame</h3>
+                <button class="btn-fechar-modal" id="btn-fechar-modal">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Conteúdo será preenchido via JavaScript -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal secundario" id="btn-modal-imprimir">
+                    <i class="fa-solid fa-print"></i> Imprimir
+                </button>
+                <a href="tel:+558333157373" class="btn-modal">
+                    <i class="fa-solid fa-phone"></i> Ligar para Agendar
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Agendar_Exame/agendar_exames.js"></script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabalhe Conosco | Laboratório F. Diniz</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#333;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#4361ee, #4895ef);
+    color:#fff;
+    padding:45px 30px;
+    text-align:center;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px 30px;
+}
+
+.logo img{
+    height:60px;
+    width:auto;
+}
+
+header h1{
+    font-size:2.3rem;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:1.1rem;
+    opacity:0.95;
+}
+
+/* CONTENT */
+.content{
+    padding:50px;
+}
+
+.section-title{
+    font-size:1.7rem;
+    color: #4895ef;
+    margin-bottom:15px;
+}
+
+.section-desc{
+    color:#555;
+    margin-bottom:35px;
+    max-width:800px;
+}
+
+/* FORM */
+.form-box{
+    background:#f9fbff;
+    border-radius:12px;
+    padding:40px;
+    border-left:5px solid #4895ef;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    position:relative;
+}
+
+.form-group.full{
+    grid-column:1 / -1;
+}
+
+label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#444;
+}
+
+input, select, textarea{
+    padding:14px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:15px;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus{
+    outline:none;
+    border-color: #4895ef;
+}
+
+/* VALIDAÇÃO */
+.valid {
+    border-color: #4CAF50 !important;
+}
+
+.invalid {
+    border-color: #F44336 !important;
+}
+
+.error-message {
+    color: #F44336;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.active {
+    display: block;
+}
+
+.success-message {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+}
+
+.success-message.active {
+    display: block;
+}
+
+/* FILE */
+input[type="file"]{
+    padding:10px;
+    background:#fff;
+}
+
+/* CHECKBOX */
+.checkbox-group{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-top:20px;
+    font-size:14px;
+    color:#555;
+}
+
+.checkbox-group input{
+    margin-top:3px;
+}
+
+.checkbox-group a{
+    color: #4895ef;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.checkbox-group a:hover{
+    text-decoration:underline;
+}
+
+/* BUTTON */
+.button-area{
+    margin-top:35px;
+    text-align:center;
+}
+
+button{
+    background: #4895ef;
+    color:#fff;
+    border:none;
+    padding:15px 40px;
+    border-radius:30px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#2563eb;
+}
+
+button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+/* FOOTER */
+.footer-note{
+    margin-top:50px;
+    text-align:center;
+    color:#777;
+    font-size:14px;
+    border-top:1px solid #eee;
+    padding-top:25px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .content{
+        padding:30px 20px;
+    }
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+    header h1{
+        font-size:1.9rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="header">
+    <a href="/" class="logo">
+        <img src="../logotipo_labfdiniz.png" alt="Laboratório F. Diniz">
+    </a>
+    <h1>Trabalhe Conosco</h1>
+</header>
+
+<div class="content">
+
+    <h2 class="section-title">Banco de Talentos</h2>
+    <p class="section-desc">
+        O Laboratório F. Diniz valoriza profissionais comprometidos com ética,
+        qualidade e excelência. Cadastre seu currículo em nosso banco de talentos
+        e faça parte da nossa equipe.
+    </p>
+
+    <div class="form-box">
+        <!-- Mensagem de sucesso (inicialmente oculta) -->
+        <div class="success-message" id="successMessage">
+            <strong>Cadastro enviado com sucesso!</strong><br>
+            Seu currículo foi enviado para o nosso banco de talentos. Entraremos em contato em breve.
+        </div>
+
+        <form id="cadastroForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" required>
+                    <div class="error-message" id="nomeError">Nome deve ter pelo menos 3 caracteres</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail *</label>
+                    <input type="email" id="email" required>
+                    <div class="error-message" id="emailError">Insira um e-mail válido</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cargo">Cargo Pretendido *</label>
+                    <input type="text" id="cargo" required>
+                    <div class="error-message" id="cargoError">Informe o cargo pretendido</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone / WhatsApp *</label>
+                    <input type="tel" id="telefone" required>
+                    <div class="error-message" id="telefoneError">Insira um telefone válido (ex: (11) 99999-9999)</div>
+                </div>
+
+                <div class="form-group full">
+                    <label for="mensagem">Apresentação Profissional</label>
+                    <textarea id="mensagem" rows="4" placeholder="Fale brevemente sobre sua experiência"></textarea>
+                    <div class="error-message" id="mensagemError">A apresentação deve ter no máximo 500 caracteres</div>
+                </div>
+
+                <div class="form-group full">
+                    <label for="curriculo">Currículo (PDF ou DOC)</label>
+                    <input type="file" id="curriculo" accept=".pdf,.doc,.docx">
+                    <div class="error-message" id="curriculoError">Apenas arquivos PDF ou DOC (max. 5MB)</div>
+                </div>
+
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="termos" required>
+                <label for="termos">
+                    Li e concordo com os
+                    <a href="../Termo_de_uso/termo.html">Termos de Uso</a> e
+                    <a href="../politica/politica.html">Política de Privacidade</a>
+                    do Laboratório F. Diniz. *
+                </label>
+                <div class="error-message" id="termosError">É necessário aceitar os termos</div>
+            </div>
+
+            <div class="button-area">
+                <button type="submit" id="submitBtn">Enviar Currículo</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="footer-note">
+        © Laboratório F. Diniz — Banco de Talentos
+    </div>
+
+</div>
+
+</div>
+<!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos do formulário
+    const form = document.getElementById('cadastroForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+    
+    // Elementos de entrada
+    const nomeInput = document.getElementById('nome');
+    const emailInput = document.getElementById('email');
+    const cargoInput = document.getElementById('cargo');
+    const telefoneInput = document.getElementById('telefone');
+    const mensagemInput = document.getElementById('mensagem');
+    const curriculoInput = document.getElementById('curriculo');
+    const termosInput = document.getElementById('termos');
+    
+    // Elementos de erro
+    const nomeError = document.getElementById('nomeError');
+    const emailError = document.getElementById('emailError');
+    const cargoError = document.getElementById('cargoError');
+    const telefoneError = document.getElementById('telefoneError');
+    const mensagemError = document.getElementById('mensagemError');
+    const curriculoError = document.getElementById('curriculoError');
+    const termosError = document.getElementById('termosError');
+    
+    // Expressões regulares para validação
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const telefoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
+    
+    // Validação em tempo real - Adicionando eventos de input para cada campo
+    nomeInput.addEventListener('input', validateNome);
+    emailInput.addEventListener('input', validateEmail);
+    cargoInput.addEventListener('input', validateCargo);
+    telefoneInput.addEventListener('input', validateTelefone);
+    mensagemInput.addEventListener('input', validateMensagem);
+    curriculoInput.addEventListener('change', validateCurriculo);
+    termosInput.addEventListener('change', validateTermos);
+    
+    // Funções de validação individuais
+    function validateNome() {
+        const nome = nomeInput.value.trim();
+        if (nome.length < 3) {
+            showError(nomeInput, nomeError, 'Nome deve ter pelo menos 3 caracteres');
+            return false;
+        } else {
+            showSuccess(nomeInput, nomeError);
+            return true;
+        }
+    }
+    
+    function validateEmail() {
+        const email = emailInput.value.trim();
+        if (!emailRegex.test(email)) {
+            showError(emailInput, emailError, 'Insira um e-mail válido');
+            return false;
+        } else {
+            showSuccess(emailInput, emailError);
+            return true;
+        }
+    }
+    
+    function validateCargo() {
+        const cargo = cargoInput.value.trim();
+        if (cargo.length < 2) {
+            showError(cargoInput, cargoError, 'Informe o cargo pretendido');
+            return false;
+        } else {
+            showSuccess(cargoInput, cargoError);
+            return true;
+        }
+    }
+    
+    function validateTelefone() {
+        const telefone = telefoneInput.value.trim();
+        // Aceita formatos: (11) 99999-9999, 11 99999-9999, 11999999999
+        const cleaned = telefone.replace(/\D/g, '');
+        if (cleaned.length < 10 || cleaned.length > 11) {
+            showError(telefoneInput, telefoneError, 'Insira um telefone válido (ex: (11) 99999-9999)');
+            return false;
+        } else {
+            showSuccess(telefoneInput, telefoneError);
+            return true;
+        }
+    }
+    
+    function validateMensagem() {
+        const mensagem = mensagemInput.value.trim();
+        if (mensagem.length > 500) {
+            showError(mensagemInput, mensagemError, 'A apresentação deve ter no máximo 500 caracteres');
+            return false;
+        } else {
+            showSuccess(mensagemInput, mensagemError);
+            return true;
+        }
+    }
+    
+    function validateCurriculo() {
+        const file = curriculoInput.files[0];
+        if (file) {
+            const allowedTypes = ['application/pdf', 'application/msword', 
+                                  'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            
+            if (!allowedTypes.includes(file.type)) {
+                showError(curriculoInput, curriculoError, 'Apenas arquivos PDF ou DOC');
+                return false;
+            } else if (file.size > maxSize) {
+                showError(curriculoInput, curriculoError, 'Arquivo muito grande (max. 5MB)');
+                return false;
+            } else {
+                showSuccess(curriculoInput, curriculoError);
+                return true;
+            }
+        }
+        // Arquivo não é obrigatório, então se não houver arquivo, é válido
+        showSuccess(curriculoInput, curriculoError);
+        return true;
+    }
+    
+    function validateTermos() {
+        if (!termosInput.checked) {
+            showError(termosInput, termosError, 'É necessário aceitar os termos');
+            return false;
+        } else {
+            showSuccess(termosInput, termosError);
+            return true;
+        }
+    }
+    
+    // Funções auxiliares para mostrar erro/sucesso
+    function showError(inputElement, errorElement, message) {
+        inputElement.classList.remove('valid');
+        inputElement.classList.add('invalid');
+        errorElement.textContent = message;
+        errorElement.classList.add('active');
+        inputElement.focus();
+    }
+    
+    function showSuccess(inputElement, errorElement) {
+        inputElement.classList.remove('invalid');
+        inputElement.classList.add('valid');
+        errorElement.classList.remove('active');
+    }
+    
+    // Validação completa do formulário
+    function validateForm() {
+        const isNomeValid = validateNome();
+        const isEmailValid = validateEmail();
+        const isCargoValid = validateCargo();
+        const isTelefoneValid = validateTelefone();
+        const isMensagemValid = validateMensagem();
+        const isCurriculoValid = validateCurriculo();
+        const isTermosValid = validateTermos();
+        
+        return isNomeValid && isEmailValid && isCargoValid && 
+               isTelefoneValid && isMensagemValid && isCurriculoValid && 
+               isTermosValid;
+    }
+    
+    // Evento de submissão do formulário
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validar todo o formulário
+        if (validateForm()) {
+            // Desabilitar o botão para evitar múltiplos envios
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            // Simular envio do formulário (em um caso real, aqui seria uma requisição AJAX)
+            setTimeout(function() {
+                // Mostrar mensagem de sucesso
+                successMessage.classList.add('active');
+                form.style.display = 'none';
+                
+                // Resetar formulário após 5 segundos
+                setTimeout(function() {
+                    form.reset();
+                    form.style.display = 'block';
+                    successMessage.classList.remove('active');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar Currículo';
+                    window.location.href = "../../Menu/index.html";
+                    
+                    // Limpar classes de validação
+                    const inputs = form.querySelectorAll('input, textarea');
+                    inputs.forEach(input => {
+                        input.classList.remove('valid', 'invalid');
+                    });
+                    
+                    // Limpar mensagens de erro
+                    const errorMessages = form.querySelectorAll('.error-message');
+                    errorMessages.forEach(error => {
+                        error.classList.remove('active');
+                    });
+                }, 5000);
+            }, 1500);
+        } else {
+            // Rolar até o primeiro erro
+            const firstError = form.querySelector('.invalid');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    });
+    
+    // Formatação automática do telefone
+    telefoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        
+        if (value.length > 0) {
+            if (value.length <= 2) {
+                value = '(' + value;
+            } else if (value.length <= 7) {
+                value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+            } else if (value.length <= 11) {
+                value = '(' + value.substring(0, 2) + ') ' + 
+                        value.substring(2, 7) + '-' + 
+                        value.substring(7, 11);
+            } else {
+                value = '(' + value.substring(0, 2) + ') ' + 
+                        value.substring(2, 7) + '-' + 
+                        value.substring(7, 11);
+            }
+        }
+        
+        e.target.value = value;
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../centro_medica/centro.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <title>Laboratório F. Diniz</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+       <div class="interface">
+
+            <div class="logo">
+                <a href="../index.html"><img src="../Imagem/logotipo_labfdiniz.png"
+                        alt="Logo Laboratório F. Diniz"></a>
+            </div>
+
+            <ul class="menu-icons">
+                <li>
+                    <a href="../Menu/historia.html"><i class="fa-solid fa-book-medical"></i><span>Nossa
+                            História</span></a>
+                </li>
+
+                <li>
+                    <a href="../Menu/unidades.html"><i class="fa-solid fa-building"></i><span>Unidades</span></a>
+                </li>
+
+                <li>
+                    <a href="../centro_medica/centro.html"><i class="fa-solid fa-hospital"></i><span>Centro
+                            Médico</span></a>
+                </li>
+
+                <li>
+                    <a href="../Fdiniz_kids/fdiniz_kids.html"><i class="fa-solid fa-child-reaching"></i><span>Fdiniz
+                            Kids</span></a>
+                </li>
+
+                <li>
+                    <a href="https://fdiniz.shiftcloud.com.br/shift/lis/fdiniz/elis/s01.iu.web.Login.cls"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-file-medical"></i>
+                        <span>Resultados</span>
+                    </a>
+                </li>
+
+                <!-- CONTATO -->
+                <li class="dropdown">
+                    <a href="#"><i class="fa-solid fa-envelope"></i><span>Contato</span></a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#">LGPD</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <div class="btn-contato">
+                <a href="#">
+                    <button><i class="fa-solid fa-headset"></i> Suporte</button>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- HERO CENTRO MÉDICO -->
+    <section class="hero-centro-medico">
+        <div class="interface">
+            <div class="hero-content">
+                <h1><i class="fa-solid fa-hospital"></i> CENTRO MÉDICO F. DINIZ</h1>
+                <p class="hero-subtitle">Cuidado integral à sua saúde com mais de 15 especialidades médicas</p>
+                <div class="hero-buttons">
+                    <a href="#especialidades" class="btn-hero btn-secondary">
+                        <i class="fa-solid fa-stethoscope"></i> Ver Especialidades
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VANTAGENS -->
+    <section class="vantagens-centro-medico">
+        <div class="interface">
+            <div class="vantagens-grid">
+                <div class="vantagem-card">
+                    <div class="vantagem-icon">
+                        <i class="fa-solid fa-user-md"></i>
+                    </div>
+                    <h3>Corpo Clínico Qualificado</h3>
+                    <p>Médicos especialistas com titulação e experiência comprovada</p>
+                </div>
+                <div class="vantagem-card">
+                    <div class="vantagem-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3>Agilidade no Atendimento</h3>
+                    <p>Consultas rápidas e resultados de exames no mesmo local</p>
+                </div>
+                <div class="vantagem-card">
+                    <div class="vantagem-icon">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Atendimento Humanizado</h3>
+                    <p>Cuide da sua saúde com conforto, segurança e empatia</p>
+                </div>
+                <div class="vantagem-card">
+                    <div class="vantagem-icon">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <h3>Procedimentos no Local</h3>
+                    <p>Realizamos pequenos procedimentos e aplicações</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDADES -->
+    <section class="especialidades" id="especialidades">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-stethoscope"></i> NOSSAS ESPECIALIDADES</h2>
+                <p class="section-subtitle">Conheça nossa equipe multidisciplinar de especialistas</p>
+            </div>
+
+            <div class="filtro-especialidades">
+                <button class="filtro-btn active" data-filtro="todas">Todas</button>
+                <button class="filtro-btn" data-filtro="clinica">Clínica</button>
+                <button class="filtro-btn" data-filtro="cirurgia">Cirurgia</button>
+                <button class="filtro-btn" data-filtro="diagnostico">Diagnóstico</button>
+                <button class="filtro-btn" data-filtro="saude-mulher">Saúde da Mulher</button>
+                <button class="filtro-btn" data-filtro="saude-homem">Saúde do Homem</button>
+            </div>
+
+            <div class="especialidades-grid">
+                <!-- Ginecologia e Obstetrícia -->
+                <div class="especialidade-card" data-categoria="saude-mulher">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-female"></i>
+                    </div>
+                    <h3>Ginecologia e Obstetrícia</h3>
+                    <p>Cuidado integral da saúde feminina em todas as fases da vida</p>
+                    <ul class="especialidade-servicos">
+                        <li>Consulta ginecológica</li>
+                        <li>Pré-natal</li>
+                        <li>Prevenção do câncer ginecológico</li>
+                        <li>Climatério e menopausa</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 99815-1347 / 99833-4440</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="ginecologia">
+                      <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Pediatria -->
+                <div class="especialidade-card" data-categoria="clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-baby"></i>
+                    </div>
+                    <h3>Pediatria</h3>
+                    <p>Cuidado especializado para crianças e adolescentes</p>
+                    <ul class="especialidade-servicos">
+                        <li>Puericultura</li>
+                        <li>Vacinação</li>
+                        <li>Acompanhamento do desenvolvimento</li>
+                        <li>Doenças infantis</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 99815-1347 / 99885-5104</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="pediatria">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Dermatologia -->
+                <div class="especialidade-card" data-categoria="clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-allergies"></i>
+                    </div>
+                    <h3>Dermatologia</h3>
+                    <p>Diagnóstico e tratamento de doenças da pele, cabelos e unhas</p>
+                    <ul class="especialidade-servicos">
+                        <li>Acne</li>
+                        <li>Melasma</li>
+                        <li>Psoríase</li>
+                        <li>Câncer de pele</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 3315-7373</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="dermatologia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Cardiologia -->
+                <div class="especialidade-card" data-categoria="clinica diagnostico">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3>Cardiologia</h3>
+                    <p>Prevenção, diagnóstico e tratamento de doenças do coração</p>
+                    <ul class="especialidade-servicos">
+                        <li>Hipertensão arterial</li>
+                        <li>Arritmias cardíacas</li>
+                        <li>Insuficiência cardíaca</li>
+                        <li>Check-up cardiológico</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 99815-1347 / 98801-3239</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="cardiologia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Cirurgia Plástica -->
+                <div class="especialidade-card" data-categoria="cirurgia">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-hand-scissors"></i>
+                    </div>
+                    <h3>Cirurgia Plástica</h3>
+                    <p>Procedimentos estéticos e reparadores com segurança</p>
+                    <ul class="especialidade-servicos">
+                        <li>Consultoria pré-operatória</li>
+                        <li>Cirurgias estéticas</li>
+                        <li>Reconstrução mamária</li>
+                        <li>Pós-operatório</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 99112-1413</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="cirurgia-plastica">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Reumatologia -->
+                <div class="especialidade-card" data-categoria="clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                    <h3>Reumatologia</h3>
+                    <p>Diagnóstico e tratamento de doenças reumatológicas</p>
+                    <ul class="especialidade-servicos">
+                        <li>Artrite reumatoide</li>
+                        <li>Lúpus</li>
+                        <li>Espondilite anquilosante</li>
+                        <li>Fibromialgia</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 99849-8985</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="reumatologia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Fonoaudiologia -->
+                <div class="especialidade-card" data-categoria="clinica diagnostico">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-head-side-cough"></i>
+                    </div>
+                    <h3>Fonoaudiologia</h3>
+                    <p>Diagnóstico e tratamento de distúrbios auditivos e da fala</p>
+                    <ul class="especialidade-servicos">
+                        <li>Terapia da fala</li>
+                        <li>Audiometria</li>
+                        <li>Tratamento de dislexia</li>
+                        <li>Reabilitação auditiva</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 99885-5104</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="fonoaudiologia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Nutrição -->
+                <div class="especialidade-card" data-categoria="clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-apple-alt"></i>
+                    </div>
+                    <h3>Nutrição</h3>
+                    <p>Orientação nutricional personalizada para sua saúde</p>
+                    <ul class="especialidade-servicos">
+                        <li>Avaliação nutricional</li>
+                        <li>Reeducação alimentar</li>
+                        <li>Nutrição esportiva</li>
+                        <li>Dietas especiais</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 99815-1347 / 99833-4440</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="nutricao">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Urologia -->
+                <div class="especialidade-card" data-categoria="saude-homem clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-mars"></i>
+                    </div>
+                    <h3>Urologia</h3>
+                    <p>Saúde do sistema urinário masculino e feminino</p>
+                    <ul class="especialidade-servicos">
+                        <li>Próstata</li>
+                        <li>Cálculos renais</li>
+                        <li>Incontinência urinária</li>
+                        <li>Disfunção sexual</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 98844-2479</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="urologia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Neuropediatria -->
+                <div class="especialidade-card" data-categoria="clinica diagnostico">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Neuropediatria</h3>
+                    <p>Especializada em doenças neurológicas infantis</p>
+                    <ul class="especialidade-servicos">
+                        <li>Epilepsia infantil</li>
+                        <li>Atraso no desenvolvimento</li>
+                        <li>TDAH</li>
+                        <li>Autismo</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 3315-7373</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="neuropediatria">
+                       <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Endocrinologia -->
+                <div class="especialidade-card" data-categoria="clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3>Endocrinologia</h3>
+                    <p>Tratamento de distúrbios hormonais e metabólicos</p>
+                    <ul class="especialidade-servicos">
+                        <li>Diabetes</li>
+                        <li>Tireoide</li>
+                        <li>Obesidade</li>
+                        <li>Distúrbios de crescimento</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 3322-6641</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="endocrinologia">
+                      <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Psicologia -->
+                <div class="especialidade-card" data-categoria="clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Psicologia</h3>
+                    <p>Cuidado com a saúde mental e bem-estar emocional</p>
+                    <ul class="especialidade-servicos">
+                        <li>Terapia individual</li>
+                        <li>Aconselhamento</li>
+                        <li>Psicoterapia</li>
+                        <li>Orientação vocacional</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 98822-0481 / 98155-1156</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="psicologia">
+                      <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Psiquiatria -->
+                <div class="especialidade-card" data-categoria="clinica">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3>Psiquiatria</h3>
+                    <p>Diagnóstico e tratamento de transtornos mentais</p>
+                    <ul class="especialidade-servicos">
+                        <li>Depressão</li>
+                        <li>Ansiedade</li>
+                        <li>Transtorno bipolar</li>
+                        <li>Insônia</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 98155-1156/98220-5727</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="psiquiatria">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Gastroenterologia -->
+                <div class="especialidade-card" data-categoria="clinica diagnostico">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-apple-alt"></i>
+                    </div>
+                    <h3>Gastroenterologia</h3>
+                    <p>Cuidados com o sistema digestório</p>
+                    <ul class="especialidade-servicos">
+                        <li>Doenças do estômago</li>
+                        <li>Intestino irritável</li>
+                        <li>Doenças do fígado</li>
+                        <li>Endoscopia digestiva</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 3322-3477</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="gastroenterologia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Oftalmologia -->
+                <div class="especialidade-card" data-categoria="clinica diagnostico">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3>Oftalmologia</h3>
+                    <p>Cuidados com a saúde ocular e correção de problemas visuais</p>
+                    <ul class="especialidade-servicos">
+                        <li>Consulta oftalmológica</li>
+                        <li>Prescrição de óculos</li>
+                        <li>Catarata</li>
+                        <li>Glaucoma</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 3315-7373</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="oftalmologia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Ortopedia -->
+                <div class="especialidade-card" data-categoria="clinica cirurgia">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                    <h3>Ortopedia</h3>
+                    <p>Diagnóstico e tratamento de problemas musculoesqueléticos</p>
+                    <ul class="especialidade-servicos">
+                        <li>Fraturas</li>
+                        <li>Artrose</li>
+                        <li>Problemas na coluna</li>
+                        <li>Lesões esportivas</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 3315-7373</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="ortopedia">
+                     <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+
+
+                <!-- Proctologista -->
+                <div class="especialidade-card" data-categoria="clinica diagnostico">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-hand-scissors"></i>
+                    </div>
+                    <h3>Proctologista</h3>
+                    <p>Diagnóstico e tratamento de doenças do cólon, reto e ânus</p>
+                    <ul class="especialidade-servicos">
+                        <li> Hemorroidas</li>
+                        <li> Fissuras anais</li>
+                        <li> Doença diverticular</li>
+                        <li> Pólipos intestinais</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 98828-0004</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="ortopedia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+
+                <!-- Fisioterapeuta Pélvico -->
+                <div class="especialidade-card" data-categoria="clinica diagnostico">
+                    <div class="especialidade-icon">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                    <h3>Fisioterapeuta Pélvico</h3>
+                    <p>Tratamento especializado para disfunções da região pélvica em homens e mulheres</p>
+                    <ul class="especialidade-servicos">
+                        <li>Incontinência urinária</li>
+                        <li>Disfunção pélvica</li>
+                        <li>Problemas pélvicos</li>
+                        <li>Reabilitação pós-parto</li>
+                    </ul>
+                    <div class="especialidade-telefone">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>(83) 3315-7373</span>
+                    </div>
+                    <button class="btn-especialidade" data-especialidade="ortopedia">
+                        <a href="#funcionamento" style="text-decoration: none;color: #fff;"><i class="fa-solid fa-calendar"></i> Agendar Consulta</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="como-funciona" id="funcionamento">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-question-circle"></i> COMO FUNCIONA</h2>
+                <p class="section-subtitle">Agendar sua consulta é simples e rápido</p>
+            </div>
+
+            <div class="passos-grid">
+                <div class="passo-card">
+                    <div class="passo-numero">1</div>
+                    <div class="passo-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3>Ligue para agendar</h3>
+                    <p>Entre em contato pelo telefone ou vai para local da clinica , localizada na Dom Pedro II (fdiniz)</p>
+                </div>
+                <div class="passo-card">
+                    <div class="passo-numero">2</div>
+                    <div class="passo-icon">
+                        <i class="fa-solid fa-hospital-user"></i>
+                    </div>
+                    <h3>Compareça à Consulta</h3>
+                    <p>No dia e horário agendado, compareça para a consulta escolhida</p>
+                </div>
+                <div class="passo-card">
+                    <div class="passo-numero">3</div>
+                    <div class="passo-icon">
+                        <i class="fa-solid fa-file-medical"></i>
+                    </div>
+                    <h3>Realize Exames</h3>
+                    <p>Faça exames complementares no próprio laboratório, se necessário</p>
+                </div>
+                <div class="passo-card">
+                    <div class="passo-numero">4</div>
+                    <div class="passo-icon">
+                        <i class="fa-solid fa-pills"></i>
+                    </div>
+                    <h3>Receba Tratamento</h3>
+                    <p>Obtenha diagnóstico, prescrição médica e acompanhamento completo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PERGUNTAS FREQUENTES -->
+    <section class="faq-centro-medico" id="duvidas">
+        <div class="interface">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-question-circle"></i> PERGUNTAS FREQUENTES</h2>
+                <p class="section-subtitle">Tire suas dúvidas sobre o Centro Médico</p>
+            </div>
+
+            <div class="faq-container">
+                <!-- PERGUNTA 1 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Como faço para agendar uma consulta?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Para agendar uma consulta, basta ligar para nossa central de agendamento no telefone
+                            <strong>(83) 3315-7373</strong> durante o horário comercial. Nossa equipe especializada em
+                            agendamentos está pronta para atendê-lo.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 2 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Quais convênios são aceitos?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Atendemos os principais convênios de Campina Grande e região, incluindo Unimed, Hapvida,
+                            Notredame, São Francisco, Bradesco Saúde, Amil, entre outros. Para verificar a cobertura
+                            específica do seu plano, ligue para nossa central.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 3 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Qual o horário de funcionamento para agendamento?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Nossa central de agendamento funciona de <strong>Segunda a Sexta das 06:00 às 19:00</strong>
+                            e <strong>Sábado das 06:00 às 12:00</strong>. Fora deste horário, você pode deixar uma
+                            mensagem que retornaremos no próximo dia útil.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 4 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Preciso levar documentos no dia da consulta?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim, recomendamos levar os seguintes documentos:</p>
+                        <ul>
+                            <li>Documento de identidade (RG ou CPF original)</li>
+                            <li>Carteirinha do convênio (se tiver)</li>
+                            <li>Comprovante de residência atualizado</li>
+                            <li>Exames anteriores (se houver)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 5 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>Posso fazer exames no mesmo dia da consulta?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Sim! Uma das grandes vantagens do Centro Médico F. Diniz é a integração completa com nosso
+                            laboratório. Muitos exames podem ser realizados no mesmo local, agilizando seu diagnóstico e
+                            tratamento. Consulte seu médico sobre quais exames são necessários.</p>
+                    </div>
+                </div>
+
+                <!-- PERGUNTA 6 -->
+                <div class="faq-item">
+                    <button class="faq-pergunta">
+                        <span>É necessário encaminhamento médico?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-resposta">
+                        <p>Para a maioria das especialidades, não é necessário encaminhamento. Você pode agendar
+                            diretamente com o especialista. No entanto, alguns convênios específicos podem exigir
+                            encaminhamento para consultas com determinados especialistas. Consulte sua operadora para
+                            mais informações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ (Mesmo do restante do site) -->
+   <footer class="rodape">
+    <div class="interface">
+        <div class="rodape-grid">
+            <!-- LOGO -->
+            <div class="rodape-coluna">
+                <img src="../Imagem/logotipo_labfdiniz.png" alt="Laboratório F. Diniz" class="logo-rodape">
+                <p>
+                    Cuidando da sua saúde com excelência, confiança e transparência.
+                    Referência em exames laboratoriais e atendimento humanizado.
+                </p>
+            </div>
+
+            <!-- MENU INSTITUCIONAL -->
+            <div class="rodape-coluna">
+                <h3>Institucional</h3>
+                <ul class="rodape-menu">
+                    <li><a href="../Menu/historia.html">Nossa História</a></li>
+                    <li><a href="#">Unidades</a></li>
+                    <li><a href="#">Centro Médico</a></li>
+                    <li><a href="#">F.Diniz Kids</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTATO -->
+            <div class="rodape-coluna">
+                <h3>Contato</h3>
+                <ul class="rodape-contato">
+                    <li>
+                        <a href="tel:+558333157373">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(83) 3315-7373</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/558333157373" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>(83) 3315-7373</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:contato@laboratoriodiniz.com.br">
+                            <i class="fas fa-envelope"></i>
+                            <span>contato@laboratoriodiniz.com.br</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rodape-copy">
+            <p>© 2025 Laboratório F. Diniz — Todos os direitos reservados</p>
+        </div>
+    </div>
+</footer>
+<!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    <script src="../JS/centro-medico.js"></script>
+</body>
+
+</html>
