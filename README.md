@@ -1,7 +1,4 @@
 # 🧪 Laboratório F. Diniz
-
-![Logo do Laboratório F. Diniz](Imagem/logotipo_labfdiniz.png)
-
 Site institucional do **Laboratório F. Diniz**, desenvolvido para oferecer informações sobre unidades, serviços, corpo clínico e canais de atendimento, com foco em acessibilidade, usabilidade e experiência do usuário.
 
 🔗 **Acesse o site:** [www.laboratoriofdiniz.com.br](https://www.laboratoriofdiniz.com.br) *(exemplo)*
