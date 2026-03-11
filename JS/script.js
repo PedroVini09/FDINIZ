@@ -17,7 +17,6 @@ btnContato.addEventListener("click", (e) => {
     submenu.classList.toggle("ativo");
 });
 
-
 document.addEventListener('DOMContentLoaded', function() {
 
     // Adicionar redes sociais dinamicamente (opcional)
@@ -81,3 +80,4 @@ function adicionarRedesSociais() {
         primeiraColuna.appendChild(containerRedes);
     }
 }
+
