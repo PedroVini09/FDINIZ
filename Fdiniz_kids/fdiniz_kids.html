@@ -145,52 +145,96 @@
     </section>
 
     <!-- Certificado de Coragem -->
-    <section class="certificate-section" id="certificate">
-        <div class="container">
-            <div class="certificate-card">
-                <div class="certificate-header">
-                    <h2>
-                        <i class="fas fa-scroll"></i>
-                        Certificado de Coragem
-                    </h2>
-                    <div class="badge-premium">
-                        <i class="fas fa-crown"></i>
-                        Exclusivo
-                    </div>
+    <div class="interface">
+        <div class="certificados-header" id="certificate">
+            <h1>🎖️ Certificados F.Diniz Kids</h1>
+            <p>Escolha o tema e personalize o certificado para sua criança</p>
+        </div>
+
+        <div class="escolha-container">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>👶 Nome da Criança</label>
+                    <input type="text" id="nomeCrianca" placeholder="Digite o nome da criança">
                 </div>
-                
-                <div class="certificate-content">
-                    <div class="certificate-design">
-                        <div class="certificate-frame">
-                            <div class="certificate-title">Certificado de Herói</div>
-                            <div class="certificate-body">
-                                <p>Concedido a:</p>
-                                <h3><span class="hero-name">[Nome do Pequeno Herói]</span></h3>
-                                <p>Por demonstrar coragem extraordinária durante sua missão de saúde</p>
-                                <div class="seal">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                                <p class="date">Data da Missão: <span class="highlight">__/__/____</span></p>
-                            </div>
-                        </div>
+
+                <div class="form-group">
+                    <label>🎂 Idade</label>
+                    <input type="number" id="idade" placeholder="Idade">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label >👧👦 Gênero</label>
+                <div class="genero-options">
+                    <div class="genero-btn menino active" data-genero="menino">
+                        <i class="fas fa-mars"></i> Menino
                     </div>
-                    
-                    <div class="certificate-info">
-                        <h3>Por que esse certificado é especial?</h3>
-                        <ul class="certificate-features">
-                            <li><i class="fas fa-check-circle"></i> Personalizado com o nome da criança</li>
-                            <li><i class="fas fa-check-circle"></i> Carimbo oficial F.Diniz Kids</li>
-                            <li><i class="fas fa-check-circle"></i> Espaço para foto do herói</li>
-                            <li><i class="fas fa-check-circle"></i> Reconhecimento que fortalece a autoestima</li>
-                        </ul>
-                        <p class="certificate-quote">
-                            "Seu guerreirinho vai viver uma experiência de mini herói. Cuidar da saúde do seu filho pode ser sinônimo de boas lembranças!"
-                        </p>
+                    <div class="genero-btn menina" data-genero="menina">
+                        <i class="fas fa-venus"></i> Menina
                     </div>
                 </div>
             </div>
+
+            <div class="form-group">
+                <label >🎨 Escolha o Tema do Certificado</label>
+                <div class="temas-grid">
+                    <div class="tema-card active" data-tema="hotwheels">
+                        <i class="fas fa-car"></i>
+                        <h4>Hot Wheels</h4>
+                        <p>Para os pequenos corredores</p>
+                    </div>
+                    <div class="tema-card" data-tema="divertidamente">
+                        <i class="fas fa-smile"></i>
+                        <h4>Divertidamente</h4>
+                        <p>Para os pequenos exploradores de emoções</p>
+                    </div>
+                    <div class="tema-card" data-tema="sonic">
+                        <i class="fas fa-mask"></i>
+                        <h4>Sonic</h4>
+                        <p>Para os pequenos heróis em ação</p>
+                    </div>
+                    <div class="tema-card" data-tema="PJ-Mask">
+                        <i class="fas fa-user-secret"></i>
+                        <h4>PJ Mask</h4>
+                        <p>Para os pequenos vigilantes noturnos</p>
+                    </div>
+                    <div class="tema-card" data-tema="parabens">
+                        <i class="fas fa-star"></i>
+                        <h4>Parabéns</h4>
+                        <p>Celebra momentos especiais</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group especial">
+                <label>👣 Teste do Pezinho (Especial)</label>
+                <div class="pezinho-card" data-tipo="pezinho">
+                    <div class="pezinho-content">
+                        <i class="fas fa-baby"></i>
+                        <div class="pezinho-texto">
+                            <h4>Teste do Pezinho</h4>
+                            <p>Primeiro passo com muito amor e coragem</p>
+                            <span class="badge-especial">⭐ Certificado Especial ⭐</span>
+                        </div>
+                    </div>
+                    <div class="pezinho-icon">
+                        <i class="fas fa-footprints"></i>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-gerar" onclick="gerarCertificado()">
+                <i class="fas fa-certificate"></i>
+                Gerar Certificado
+            </button>
         </div>
-    </section>
+
+        <div id="certificado" class="certificado-area">
+            <!-- Certificado será gerado aqui -->
+        </div>
+
+    </div>
 
     <!-- Galeria do Espaço Kids -->
     <section class="gallery-section" id="gallery">
@@ -306,7 +350,7 @@
                             <div class="form-group">
                                 <label for="hero-name">
                                     <i class="fas fa-user"></i>
-                                    Nome do Pequeno Herói
+                                    Nome do Pequeno Herói ou Heroína
                                 </label>
                                 <input type="text" id="hero-name" placeholder="Digite o nome da criança" required>
                             </div>
@@ -314,7 +358,7 @@
                             <div class="form-group">
                                 <label for="hero-age">
                                     <i class="fas fa-birthday-cake"></i>
-                                    Idade do Herói
+                                    Idade do Herói ou Heroína
                                 </label>
                                 <input type="number" id="hero-age" placeholder="Idade" min="0" max="12" required>
                             </div>
@@ -330,7 +374,7 @@
                             <div class="form-group">
                                 <label for="parent-phone">
                                     <i class="fas fa-mobile-alt"></i>
-                                    Telefone
+                                    Telefone do Responsável
                                 </label>
                                 <input type="tel" id="parent-phone" placeholder="(11) 99999-9999" required>
                             </div>
