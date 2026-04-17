@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="shortcut icon" href="../../Imagem/favicon/logo-icone.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../../Imagem/favicon/logo-icone.ico" type="image/x-icon">
 <title>Trabalhe Conosco | Laboratório F. Diniz</title>
 
 <style>
@@ -30,18 +30,12 @@ body{
 }
 
 /* HEADER */
-header{
-    background:linear-gradient(135deg,#4361ee, #4895ef);
-    color:#fff;
-    padding:45px 30px;
-    text-align:center;
-}
-
 .header{
     display:flex;
     align-items:center;
     gap:20px;
-    padding:20px 30px;
+    padding:30px;
+    background:linear-gradient(135deg,#4361ee, #4895ef);
 }
 
 .logo img{
@@ -49,14 +43,10 @@ header{
     width:auto;
 }
 
-header h1{
-    font-size:2.3rem;
-    margin-bottom:10px;
-}
-
-header p{
-    font-size:1.1rem;
-    opacity:0.95;
+.header h1{
+    font-size:2rem;
+    color:#fff;
+    margin:0;
 }
 
 /* CONTENT */
@@ -153,12 +143,6 @@ input:focus, select:focus, textarea:focus{
     display: block;
 }
 
-/* FILE */
-input[type="file"]{
-    padding:10px;
-    background:#fff;
-}
-
 /* CHECKBOX */
 .checkbox-group{
     display:flex;
@@ -228,8 +212,8 @@ button:disabled {
     .form-grid{
         grid-template-columns:1fr;
     }
-    header h1{
-        font-size:1.9rem;
+    .header h1{
+        font-size:1.5rem;
     }
 }
 </style>
@@ -239,12 +223,12 @@ button:disabled {
 
 <div class="container">
 
-<header class="header">
+<div class="header">
     <a href="/" class="logo">
         <img src="../logotipo_labfdiniz.png" alt="Laboratório F. Diniz">
     </a>
     <h1>Trabalhe Conosco</h1>
-</header>
+</div>
 
 <div class="content">
 
@@ -256,56 +240,55 @@ button:disabled {
     </p>
 
     <div class="form-box">
-        <!-- Mensagem de sucesso (inicialmente oculta) -->
         <div class="success-message" id="successMessage">
             <strong>Cadastro enviado com sucesso!</strong><br>
             Seu currículo foi enviado para o nosso banco de talentos. Entraremos em contato em breve.
         </div>
 
-        <form id="cadastroForm">
-
+        <form id="cadastroForm" action="enviar_curriculo.php" method="POST" enctype="multipart/form-data">
+            
             <div class="form-grid">
 
                 <div class="form-group">
                     <label for="nome">Nome Completo *</label>
-                    <input type="text" id="nome" required>
+                    <input type="text" id="nome" name="nome" required>
                     <div class="error-message" id="nomeError">Nome deve ter pelo menos 3 caracteres</div>
                 </div>
 
                 <div class="form-group">
                     <label for="email">E-mail *</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" required>
                     <div class="error-message" id="emailError">Insira um e-mail válido</div>
                 </div>
 
                 <div class="form-group">
                     <label for="cargo">Cargo Pretendido *</label>
-                    <input type="text" id="cargo" required>
+                    <input type="text" id="cargo" name="cargo" required>
                     <div class="error-message" id="cargoError">Informe o cargo pretendido</div>
                 </div>
 
                 <div class="form-group">
                     <label for="telefone">Telefone / WhatsApp *</label>
-                    <input type="tel" id="telefone" required>
+                    <input type="tel" id="telefone" name="telefone" required>
                     <div class="error-message" id="telefoneError">Insira um telefone válido (ex: (11) 99999-9999)</div>
                 </div>
 
                 <div class="form-group full">
                     <label for="mensagem">Apresentação Profissional</label>
-                    <textarea id="mensagem" rows="4" placeholder="Fale brevemente sobre sua experiência"></textarea>
+                    <textarea id="mensagem" name="mensagem" rows="4" placeholder="Fale brevemente sobre sua experiência"></textarea>
                     <div class="error-message" id="mensagemError">A apresentação deve ter no máximo 500 caracteres</div>
                 </div>
 
                 <div class="form-group full">
                     <label for="curriculo">Currículo (PDF ou DOC)</label>
-                    <input type="file" id="curriculo" accept=".pdf,.doc,.docx">
+                    <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx">
                     <div class="error-message" id="curriculoError">Apenas arquivos PDF ou DOC (max. 5MB)</div>
                 </div>
 
             </div>
 
             <div class="checkbox-group">
-                <input type="checkbox" id="termos" required>
+                <input type="checkbox" id="termos" name="termos" required>
                 <label for="termos">
                     Li e concordo com os
                     <a href="../Termo_de_uso/termo.html">Termos de Uso</a> e
@@ -330,17 +313,19 @@ button:disabled {
 </div>
 
 </div>
+
 <!-- VLibras -->
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos do formulário
@@ -366,11 +351,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const curriculoError = document.getElementById('curriculoError');
     const termosError = document.getElementById('termosError');
     
-    // Expressões regulares para validação
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const telefoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/;
     
-    // Validação em tempo real - Adicionando eventos de input para cada campo
+    // Adicionar eventos
     nomeInput.addEventListener('input', validateNome);
     emailInput.addEventListener('input', validateEmail);
     cargoInput.addEventListener('input', validateCargo);
@@ -379,7 +362,6 @@ document.addEventListener('DOMContentLoaded', function() {
     curriculoInput.addEventListener('change', validateCurriculo);
     termosInput.addEventListener('change', validateTermos);
     
-    // Funções de validação individuais
     function validateNome() {
         const nome = nomeInput.value.trim();
         if (nome.length < 3) {
@@ -415,7 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function validateTelefone() {
         const telefone = telefoneInput.value.trim();
-        // Aceita formatos: (11) 99999-9999, 11 99999-9999, 11999999999
         const cleaned = telefone.replace(/\D/g, '');
         if (cleaned.length < 10 || cleaned.length > 11) {
             showError(telefoneInput, telefoneError, 'Insira um telefone válido (ex: (11) 99999-9999)');
@@ -442,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (file) {
             const allowedTypes = ['application/pdf', 'application/msword', 
                                   'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-            const maxSize = 5 * 1024 * 1024; // 5MB
+            const maxSize = 5 * 1024 * 1024;
             
             if (!allowedTypes.includes(file.type)) {
                 showError(curriculoInput, curriculoError, 'Apenas arquivos PDF ou DOC');
@@ -455,7 +436,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 return true;
             }
         }
-        // Arquivo não é obrigatório, então se não houver arquivo, é válido
         showSuccess(curriculoInput, curriculoError);
         return true;
     }
@@ -470,13 +450,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Funções auxiliares para mostrar erro/sucesso
     function showError(inputElement, errorElement, message) {
         inputElement.classList.remove('valid');
         inputElement.classList.add('invalid');
         errorElement.textContent = message;
         errorElement.classList.add('active');
-        inputElement.focus();
     }
     
     function showSuccess(inputElement, errorElement) {
@@ -485,7 +463,6 @@ document.addEventListener('DOMContentLoaded', function() {
         errorElement.classList.remove('active');
     }
     
-    // Validação completa do formulário
     function validateForm() {
         const isNomeValid = validateNome();
         const isEmailValid = validateEmail();
@@ -500,51 +477,16 @@ document.addEventListener('DOMContentLoaded', function() {
                isTermosValid;
     }
     
-    // Evento de submissão do formulário
+    // Submissão do formulário - AGORA DEIXA O PHP PROCESSAR
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Validar todo o formulário
-        if (validateForm()) {
-            // Desabilitar o botão para evitar múltiplos envios
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Enviando...';
-            
-            // Simular envio do formulário (em um caso real, aqui seria uma requisição AJAX)
-            setTimeout(function() {
-                // Mostrar mensagem de sucesso
-                successMessage.classList.add('active');
-                form.style.display = 'none';
-                
-                // Resetar formulário após 5 segundos
-                setTimeout(function() {
-                    form.reset();
-                    form.style.display = 'block';
-                    successMessage.classList.remove('active');
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Enviar Currículo';
-                    window.location.href = "../../Menu/index.html";
-                    
-                    // Limpar classes de validação
-                    const inputs = form.querySelectorAll('input, textarea');
-                    inputs.forEach(input => {
-                        input.classList.remove('valid', 'invalid');
-                    });
-                    
-                    // Limpar mensagens de erro
-                    const errorMessages = form.querySelectorAll('.error-message');
-                    errorMessages.forEach(error => {
-                        error.classList.remove('active');
-                    });
-                }, 5000);
-            }, 1500);
-        } else {
-            // Rolar até o primeiro erro
+        if (!validateForm()) {
+            e.preventDefault();
             const firstError = form.querySelector('.invalid');
             if (firstError) {
                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
+        // Se passar na validação, o formulário é enviado normalmente para o PHP
     });
     
     // Formatação automática do telefone
@@ -557,10 +499,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (value.length <= 7) {
                 value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
             } else if (value.length <= 11) {
-                value = '(' + value.substring(0, 2) + ') ' + 
-                        value.substring(2, 7) + '-' + 
-                        value.substring(7, 11);
-            } else {
                 value = '(' + value.substring(0, 2) + ') ' + 
                         value.substring(2, 7) + '-' + 
                         value.substring(7, 11);

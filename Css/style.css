@@ -648,6 +648,38 @@ header.scrolled .btn-contato button:hover {
     pointer-events: none;
 }
 
+/* Botão WhatsApp para Coleta Domiciliar */
+.btn-whatsapp-coleta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: white;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-whatsapp-coleta i {
+    font-size: 22px;
+}
+
+.btn-whatsapp-coleta:hover {
+    background: #1da851;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-coleta:active {
+    transform: translateY(0);
+}
+
 /* TEXTO */
 .texto-coleta {
     padding: 20px;
@@ -671,7 +703,7 @@ header.scrolled .btn-contato button:hover {
 
 /* BOTÃO */
 .texto-coleta button {
-    background: linear-gradient(135deg, #03113f 0%, #0a4fff 100%);
+    /* background: linear-gradient(135deg, #03113f 0%, #0a4fff 100%); */
     color: white;
     border: none;
     padding: 18px 35px;
