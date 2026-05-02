@@ -29,7 +29,6 @@ body{
     overflow:hidden;
 }
 
-/* HEADER */
 .header{
     display:flex;
     align-items:center;
@@ -49,7 +48,6 @@ body{
     margin:0;
 }
 
-/* CONTENT */
 .content{
     padding:50px;
 }
@@ -66,7 +64,6 @@ body{
     max-width:800px;
 }
 
-/* FORM */
 .form-box{
     background:#f9fbff;
     border-radius:12px;
@@ -109,7 +106,6 @@ input:focus, select:focus, textarea:focus{
     border-color: #4895ef;
 }
 
-/* VALIDAÇÃO */
 .valid {
     border-color: #4CAF50 !important;
 }
@@ -129,21 +125,6 @@ input:focus, select:focus, textarea:focus{
     display: block;
 }
 
-.success-message {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 20px;
-    text-align: center;
-    display: none;
-}
-
-.success-message.active {
-    display: block;
-}
-
-/* CHECKBOX */
 .checkbox-group{
     display:flex;
     align-items:flex-start;
@@ -167,7 +148,6 @@ input:focus, select:focus, textarea:focus{
     text-decoration:underline;
 }
 
-/* BUTTON */
 .button-area{
     margin-top:35px;
     text-align:center;
@@ -194,7 +174,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* FOOTER */
 .footer-note{
     margin-top:50px;
     text-align:center;
@@ -204,7 +183,6 @@ button:disabled {
     padding-top:25px;
 }
 
-/* RESPONSIVE */
 @media(max-width:768px){
     .content{
         padding:30px 20px;
@@ -240,7 +218,7 @@ button:disabled {
     </p>
 
     <div class="form-box">
-        <div class="success-message" id="successMessage">
+        <div class="success-message" id="successMessage" style="display:none;">
             <strong>Cadastro enviado com sucesso!</strong><br>
             Seu currículo foi enviado para o nosso banco de talentos. Entraremos em contato em breve.
         </div>
@@ -248,7 +226,6 @@ button:disabled {
         <form id="cadastroForm" action="enviar_curriculo.php" method="POST" enctype="multipart/form-data">
             
             <div class="form-grid">
-
                 <div class="form-group">
                     <label for="nome">Nome Completo *</label>
                     <input type="text" id="nome" name="nome" required>
@@ -284,7 +261,6 @@ button:disabled {
                     <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx">
                     <div class="error-message" id="curriculoError">Apenas arquivos PDF ou DOC (max. 5MB)</div>
                 </div>
-
             </div>
 
             <div class="checkbox-group">
@@ -303,7 +279,6 @@ button:disabled {
             </div>
 
         </form>
-
     </div>
 
     <div class="footer-note">
@@ -328,12 +303,9 @@ button:disabled {
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Elementos do formulário
     const form = document.getElementById('cadastroForm');
     const submitBtn = document.getElementById('submitBtn');
-    const successMessage = document.getElementById('successMessage');
     
-    // Elementos de entrada
     const nomeInput = document.getElementById('nome');
     const emailInput = document.getElementById('email');
     const cargoInput = document.getElementById('cargo');
@@ -342,7 +314,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const curriculoInput = document.getElementById('curriculo');
     const termosInput = document.getElementById('termos');
     
-    // Elementos de erro
     const nomeError = document.getElementById('nomeError');
     const emailError = document.getElementById('emailError');
     const cargoError = document.getElementById('cargoError');
@@ -353,7 +324,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
-    // Adicionar eventos
     nomeInput.addEventListener('input', validateNome);
     emailInput.addEventListener('input', validateEmail);
     cargoInput.addEventListener('input', validateCargo);
@@ -464,20 +434,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function validateForm() {
-        const isNomeValid = validateNome();
-        const isEmailValid = validateEmail();
-        const isCargoValid = validateCargo();
-        const isTelefoneValid = validateTelefone();
-        const isMensagemValid = validateMensagem();
-        const isCurriculoValid = validateCurriculo();
-        const isTermosValid = validateTermos();
-        
-        return isNomeValid && isEmailValid && isCargoValid && 
-               isTelefoneValid && isMensagemValid && isCurriculoValid && 
-               isTermosValid;
+        return validateNome() && validateEmail() && validateCargo() && 
+               validateTelefone() && validateMensagem() && validateCurriculo() && validateTermos();
     }
     
-    // Submissão do formulário - AGORA DEIXA O PHP PROCESSAR
     form.addEventListener('submit', function(e) {
         if (!validateForm()) {
             e.preventDefault();
@@ -486,13 +446,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
-        // Se passar na validação, o formulário é enviado normalmente para o PHP
     });
     
-    // Formatação automática do telefone
     telefoneInput.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
-        
         if (value.length > 0) {
             if (value.length <= 2) {
                 value = '(' + value;
@@ -504,7 +461,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         value.substring(7, 11);
             }
         }
-        
         e.target.value = value;
     });
 });
