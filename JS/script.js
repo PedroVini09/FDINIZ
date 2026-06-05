@@ -436,3 +436,4 @@ cookieStyle.textContent = `
     }
 `;
 document.head.appendChild(cookieStyle);
+
