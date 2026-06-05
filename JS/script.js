@@ -293,7 +293,6 @@ function iniciarCarrossel() {
             }
             resetProgressBar();
             iniciarAutoSlide();
-            iniciarProgressBar();
         });
     }
     
