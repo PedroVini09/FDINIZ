@@ -19,71 +19,54 @@
 <body>
 
     <header>
-        <div class="interface">
-
-            <div class="logo">
-                <a href="index.html"><img src="Imagem/logotipo_labfdiniz.png"
-                        alt="Logo Laboratório F. Diniz"></a>
-            </div>
-
-            <ul class="menu-icons">
-                <li>
-                    <a href="Menu/historia.html"><i class="fa-solid fa-book-medical"></i><span>Nossa
-                            História</span></a>
-                </li>
-
-                <li>
-                    <a href="Menu/unidades.html"><i class="fa-solid fa-building"></i><span>Unidades</span></a>
-                </li>
-
-                <li>
-                    <a href="centro_medica/centro.html"><i class="fa-solid fa-hospital"></i><span>Centro
-                            Médico</span></a>
-                </li>
-
-                <li>
-                    <a href="Fdiniz_kids/fdiniz_kids.html"><i class="fa-solid fa-child-reaching"></i><span>Fdiniz
-                            Kids</span></a>
-                </li>
-
-                <li>
-                    <a href="https://fdiniz.shiftcloud.com.br/shift/lis/fdiniz/elis/s01.iu.web.Login.cls"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-file-medical"></i>
-                        <span>Resultados</span>
-                    </a>
-                </li>
-
-                  <li>
-                    <a href="https://www.labfdiniz.com.br/helpdesk/"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="fa-solid fa-headset"></i>
-                        <span>Helpdesk</span>
-                    </a>
-                </li>
-
-
-                <!-- CONTATO -->
-                <li class="dropdown">
-                    <a href="#"><i class="fa-solid fa-envelope"></i><span>Contato</span></a>
-
-                    <ul class="dropdown-menu">
-                        <li><a href="Contato/LGPD/lgpd.html">LGPD</a></li>
-                        <!-- <li><a href="Contato/Fale_conosco/fale_conosco.html" >Fale Conosco</a></li> -->
-                        <li><a href="Contato/Trabalhe_conosco/trabalho.html">Trabalhe Conosco</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-            <!-- <div class="btn-contato">
-                <a href="#">
-                    <button><i class="fa-solid fa-headset"></i> Suporte</button>
-                </a>
-            </div> -->
-
+    <div class="interface">
+        <div class="logo">
+            <a href="index.html"><img src="Imagem/logotipo_labfdiniz.png" alt="Logo Laboratório F. Diniz"></a>
         </div>
-    </header>
 
+        <!-- Menu Desktop -->
+        <ul class="menu-icons">
+            <li><a href="Menu/historia.html"><i class="fa-solid fa-book-medical"></i><span>Nossa História</span></a></li>
+            <li><a href="Menu/unidades.html"><i class="fa-solid fa-building"></i><span>Unidades</span></a></li>
+            <li><a href="centro_medica/centro.html"><i class="fa-solid fa-hospital"></i><span>Centro Médico</span></a></li>
+            <li><a href="Fdiniz_kids/fdiniz_kids.html"><i class="fa-solid fa-child-reaching"></i><span>Fdiniz Kids</span></a></li>
+            <li><a href="https://fdiniz.shiftcloud.com.br/shift/lis/fdiniz/elis/s01.iu.web.Login.cls" target="_blank"><i class="fa-solid fa-file-medical"></i><span>Resultados</span></a></li>
+            <li><a href="https://www.labfdiniz.com.br/helpdesk/" target="_blank"><i class="fa-solid fa-headset"></i><span>Helpdesk</span></a></li>
+            <li class="dropdown">
+                <a href="#"><i class="fa-solid fa-envelope"></i><span>Contato</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="Contato/LGPD/lgpd.html">LGPD</a></li>
+                    <li><a href="Contato/Trabalhe_conosco/trabalho.html">Trabalhe Conosco</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Botão Hamburguer -->
+        <button class="menu-hamburguer" id="menuHamburguer">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<!-- Menu Mobile -->
+<div class="menu-mobile" id="menuMobile">
+    <button class="close-menu" id="closeMenu"><i class="fas fa-times"></i></button>
+    <ul>
+        <li><a href="Menu/historia.html"><i class="fa-solid fa-book-medical"></i> Nossa História</a></li>
+        <li><a href="Menu/unidades.html"><i class="fa-solid fa-building"></i> Unidades</a></li>
+        <li><a href="centro_medica/centro.html"><i class="fa-solid fa-hospital"></i> Centro Médico</a></li>
+        <li><a href="Fdiniz_kids/fdiniz_kids.html"><i class="fa-solid fa-child-reaching"></i> Fdiniz Kids</a></li>
+        <li><a href="https://fdiniz.shiftcloud.com.br/shift/lis/fdiniz/elis/s01.iu.web.Login.cls" target="_blank"><i class="fa-solid fa-file-medical"></i> Resultados</a></li>
+        <li><a href="https://www.labfdiniz.com.br/helpdesk/" target="_blank"><i class="fa-solid fa-headset"></i> Helpdesk</a></li>
+        <li><a href="Contato/LGPD/lgpd.html"><i class="fa-solid fa-shield-halved"></i> LGPD</a></li>
+        <li><a href="Contato/Trabalhe_conosco/trabalho.html"><i class="fa-solid fa-briefcase"></i> Trabalhe Conosco</a></li>
+    </ul>
+</div>
+
+<!-- Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
     <!-- HERO -->
     <section class="hero-site ">
         <!-- <section style="height: 150vh; background: #f5f5f5;"></section> -->
@@ -98,14 +81,13 @@
             </div>
         </div>
     </section>
-    <!-- Porque escolher o labfdiniz /Carrosel -->
-   <!-- Seção Carrossel Premium -->
+  <!-- Seção Carrossel Premium -->
 <section class="carrossel-premium">
     <div class="carrossel-fullscreen">
         <div class="carrossel-slides-container" id="carrosselSlides">
             <div class="slide-full">
                 <div class="slide-bg">
-                    <img src="../Imagem/profissionais.jpg" alt="Equipe Especializada">
+                    <img src="/FDINIZ/Imagem/profissionais.jpg" alt="Equipe Especializada">
                     <div class="slide-overlay-premium"></div>
                 </div>
                 <div class="slide-content">
@@ -113,21 +95,15 @@
                     <h2>Equipe <span class="destaque">Especializada</span></h2>
                     <p>Profissionais altamente capacitados para oferecer o melhor cuidado e acolhimento em cada atendimento.</p>
                     <div class="slide-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-user-md"></i>
-                            <span>+50 Especialistas</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-certificate"></i>
-                            <span>Certificação Internacional</span>
-                        </div>
+                        <div class="meta-item"><i class="fas fa-user-md"></i><span>+50 Especialistas</span></div>
+                        <div class="meta-item"><i class="fas fa-certificate"></i><span>Certificação Internacional</span></div>
                     </div>
                 </div>
             </div>
             
             <div class="slide-full">
                 <div class="slide-bg">
-                    <img src="../Imagem/atendimento.png" alt="Atendimento Transparente">
+                    <img src="/FDINIZ/Imagem/atendimento.png" alt="Atendimento Transparente">
                     <div class="slide-overlay-premium"></div>
                 </div>
                 <div class="slide-content">
@@ -135,21 +111,15 @@
                     <h2>Atendimento <span class="destaque">Transparente</span></h2>
                     <p>Todas as amostras são identificadas na frente do cliente com códigos de barras, garantindo total rastreabilidade e segurança.</p>
                     <div class="slide-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-qrcode"></i>
-                            <span>100% Rastreável</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Segurança Garantida</span>
-                        </div>
+                        <div class="meta-item"><i class="fas fa-qrcode"></i><span>100% Rastreável</span></div>
+                        <div class="meta-item"><i class="fas fa-shield-alt"></i><span>Segurança Garantida</span></div>
                     </div>
                 </div>
             </div>
             
             <div class="slide-full">
                 <div class="slide-bg">
-                    <img src="../Imagem/FDINIZ.jpg" alt="Instalações Modernas">
+                    <img src="/FDINIZ/Imagem/FDINIZ.jpg" alt="Instalações Modernas">
                     <div class="slide-overlay-premium"></div>
                 </div>
                 <div class="slide-content">
@@ -157,21 +127,15 @@
                     <h2>Instalações <span class="destaque">Modernas</span></h2>
                     <p>Equipamentos de última geração e ambiente planejado para seu conforto e bem-estar durante todo o processo.</p>
                     <div class="slide-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-microscope"></i>
-                            <span>Laboratório Avançado</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-flask"></i>
-                            <span>Tecnologia Alemã</span>
-                        </div>
+                        <div class="meta-item"><i class="fas fa-microscope"></i><span>Laboratório Avançado</span></div>
+                        <div class="meta-item"><i class="fas fa-flask"></i><span>Tecnologia Alemã</span></div>
                     </div>
                 </div>
             </div>
             
             <div class="slide-full">
                 <div class="slide-bg">
-                    <img src="/Imagem/Coleta domiciliar.png" alt="Coleta Domiciliar">
+                    <img src="/FDINIZ/Imagem/Coleta domiciliar.png" alt="Coleta Domiciliar">
                     <div class="slide-overlay-premium"></div>
                 </div>
                 <div class="slide-content">
@@ -179,52 +143,33 @@
                     <h2>Coleta <span class="destaque">Domiciliar</span></h2>
                     <p>Realize seus exames no conforto do seu lar com nossa equipe especializada e equipamentos modernos.</p>
                     <div class="slide-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-home"></i>
-                            <span>Atendimento em Casa</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Horário Flexível</span>
-                        </div>
+                        <div class="meta-item"><i class="fas fa-home"></i><span>Atendimento em Casa</span></div>
+                        <div class="meta-item"><i class="fas fa-clock"></i><span>Horário Flexível</span></div>
                     </div>
                 </div>
             </div>
             
             <div class="slide-full">
                 <div class="slide-bg">
-                    <img src="/Imagem/teste-do-pezinho.jpg" alt="Diagnósticos Precisos">
+                    <img src="/FDINIZ/Imagem/teste-do-pezinho.jpg" alt="Diagnósticos Precisos">
                     <div class="slide-overlay-premium"></div>
                 </div>
                 <div class="slide-content">
                     <div class="slide-tag">Diagnósticos Precisos</div>
-                    <h2>Teste<span class="destaque">do pezinho</span></h2>
-                    <p>Quem ama seu filho, sabe que a saúde é o maior presente que pode dar. Por isso, oferecemos testes precisos e confiáveis para garantir o bem-estar da sua família.</p>
+                    <h2>Teste <span class="destaque">do pezinho</span></h2>
+                    <p>Quem ama seu filho, sabe que a saúde é o maior presente que pode dar. Por isso, oferecemos testes precisos e confiáveis.</p>
                     <div class="slide-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Resultados Rápidos</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-check-double"></i>
-                            <span>Certificado ISO</span>
-                        </div>
+                        <div class="meta-item"><i class="fas fa-chart-line"></i><span>Resultados Rápidos</span></div>
+                        <div class="meta-item"><i class="fas fa-check-double"></i><span>Certificado ISO</span></div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <button class="carrossel-nav prev" id="prevPremium">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carrossel-nav next" id="nextPremium">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+        <button class="carrossel-nav prev" id="prevPremium"><i class="fas fa-chevron-left"></i></button>
+        <button class="carrossel-nav next" id="nextPremium"><i class="fas fa-chevron-right"></i></button>
         
-        <div class="carrossel-progress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-        
+        <div class="carrossel-progress"><div class="progress-bar" id="progressBar"></div></div>
         <div class="carrossel-indicators" id="indicatorsPremium"></div>
     </div>
 </section>
@@ -445,7 +390,7 @@
     </script>
     <!-- SCRIPT -->
     <script src="JS/script.js"></script>
-    <script src="/Pop_up/Pop_up.js"></script>
+    <!-- <script src="/Pop_up/Pop_up.js"></script> -->
 </body>
 
 </html>

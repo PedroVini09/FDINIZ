@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar carrossel
     iniciarCarrossel();
     
+    // Menu hamburguer
+    initMenuHamburguer();
+    
     // Animações de revelação
     const reveals = document.querySelectorAll('.reveal');
     if (reveals.length) {
@@ -114,9 +117,8 @@ function adicionarRedesSociais() {
     }
 }
 
-// ================= CARROSSEL AUTOMÁTICO =================
-// ================= CARROSSEL PREMIUM =================
-document.addEventListener('DOMContentLoaded', function() {
+// ================= CARROSSEL PREMIUM (VERSÃO SIMPLIFICADA E FUNCIONAL) =================
+function iniciarCarrossel() {
     const slides = document.querySelectorAll('.slide-full');
     const slidesContainer = document.querySelector('.carrossel-slides-container');
     const prevBtn = document.getElementById('prevPremium');
@@ -124,7 +126,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressBar = document.getElementById('progressBar');
     const indicatorsContainer = document.getElementById('indicatorsPremium');
     
-    if (!slides.length || !slidesContainer) return;
+    // Verificar se os elementos existem
+    if (!slides.length || !slidesContainer) {
+        console.log('Carrossel: elementos não encontrados');
+        return;
+    }
+    
+    console.log('Carrossel: iniciando com', slides.length, 'slides');
     
     let currentIndex = 0;
     let autoSlideInterval;
@@ -142,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             indicator.addEventListener('click', () => irParaSlide(i));
             indicatorsContainer.appendChild(indicator);
         }
+        console.log('Carrossel: indicadores criados');
     }
     
     // Atualizar indicadores
@@ -181,6 +190,8 @@ document.addEventListener('DOMContentLoaded', function() {
         reiniciarAutoSlide();
         resetProgressBar();
         iniciarProgressBar();
+        
+        console.log('Carrossel: slide alterado para', currentIndex);
     }
     
     // Próximo slide
@@ -206,8 +217,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!progressBar) return;
         
         let width = 0;
-        const duration = 5000; // 5 segundos
-        const increment = 100 / (duration / 50); // Atualizar a cada 50ms
+        const duration = 5000;
+        const increment = 100 / (duration / 50);
         
         progressInterval = setInterval(() => {
             width += increment;
@@ -263,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Suporte a touch
+    // Suporte a touch (mobile)
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -282,7 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             resetProgressBar();
             iniciarAutoSlide();
-            iniciarProgressBar();
         });
     }
     
@@ -290,108 +300,114 @@ document.addEventListener('DOMContentLoaded', function() {
     criarIndicadores();
     atualizarSlideAtivo();
     iniciarAutoSlide();
-});
+    
+    console.log('Carrossel: inicializado com sucesso!');
+}
 
-// ================= POP-UP DE COOKIES SIMPLES =================
+// ================= MENU HAMBURGUER =================
+function initMenuHamburguer() {
+    const menuHamburguer = document.getElementById('menuHamburguer');
+    const menuMobile = document.getElementById('menuMobile');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const closeMenu = document.getElementById('closeMenu');
+    
+    if (!menuHamburguer || !menuMobile) return;
+    
+    function abrirMenu() {
+        menuMobile.classList.add('active');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function fecharMenu() {
+        menuMobile.classList.remove('active');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    menuHamburguer.addEventListener('click', abrirMenu);
+    
+    if (closeMenu) {
+        closeMenu.addEventListener('click', fecharMenu);
+    }
+    
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', fecharMenu);
+    }
+    
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.menu-mobile a').forEach(link => {
+        link.addEventListener('click', fecharMenu);
+    });
+}
+
+// ================= POP-UP DE COOKIES =================
 document.addEventListener('DOMContentLoaded', function() {
     const cookiePopup = document.getElementById('cookiePopup');
     const acceptBtn = document.getElementById('acceptCookies');
     const rejectBtn = document.getElementById('rejectCookies');
     const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
     
-    // Verificar se os elementos existem
     if (!cookiePopup || !acceptBtn || !rejectBtn) {
         console.log('Elementos de cookies não encontrados');
         return;
     }
     
-    // Verificar se já escolheu
     const cookieChoice = localStorage.getItem('cookieConsent');
-    console.log('Escolha anterior:', cookieChoice);
     
     if (!cookieChoice) {
-        // Mostrar popup após 1.5 segundos
         setTimeout(() => {
             cookiePopup.style.display = 'block';
-            console.log('Popup de cookies exibido');
         }, 1500);
     } else {
         cookiePopup.style.display = 'none';
         if (cookieSettingsBtn) cookieSettingsBtn.style.display = 'flex';
-        console.log('Popup ocultado (já escolheu)');
     }
     
-    // ACEITAR COOKIES
     acceptBtn.addEventListener('click', function() {
-        console.log('Aceitar clicado');
         localStorage.setItem('cookieConsent', 'accepted');
         cookiePopup.style.display = 'none';
         if (cookieSettingsBtn) cookieSettingsBtn.style.display = 'flex';
-        
-        // Feedback visual
         showFeedbackMessage('Cookies aceitos! Obrigado por confiar em nós.', 'success');
-        
-        // Disparar evento personalizado
-        document.dispatchEvent(new CustomEvent('cookiesAceitos'));
     });
     
-    // REJEITAR COOKIES
     rejectBtn.addEventListener('click', function() {
-        console.log('Rejeitar clicado');
         localStorage.setItem('cookieConsent', 'rejected');
         cookiePopup.style.display = 'none';
         if (cookieSettingsBtn) cookieSettingsBtn.style.display = 'flex';
-        
-        // Feedback visual
-        showFeedbackMessage('Cookies rejeitados. Apenas os cookies essenciais serão utilizados.', 'info');
-        
-        // Disparar evento personalizado
-        document.dispatchEvent(new CustomEvent('cookiesRejeitados'));
+        showFeedbackMessage('Cookies rejeitados.', 'info');
     });
     
-    // Botão flutuante para reabrir popup (opcional)
     if (cookieSettingsBtn) {
         cookieSettingsBtn.addEventListener('click', function() {
             cookiePopup.style.display = 'block';
             cookieSettingsBtn.style.display = 'none';
-            
-            // Scroll suave até o popup
             cookiePopup.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
     }
     
-    // Função para mostrar feedback (opcional)
     function showFeedbackMessage(message, type) {
-        // Criar elemento de feedback
         const feedback = document.createElement('div');
         feedback.className = `cookie-feedback ${type}`;
-        feedback.innerHTML = `
-            <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
-            <span>${message}</span>
-        `;
-        
+        feedback.innerHTML = `<i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i><span>${message}</span>`;
         document.body.appendChild(feedback);
         
-        // Animação de entrada
         setTimeout(() => {
             feedback.style.opacity = '1';
             feedback.style.transform = 'translateY(0)';
         }, 10);
         
-        // Remover após 3 segundos
         setTimeout(() => {
             feedback.style.opacity = '0';
             feedback.style.transform = 'translateY(-20px)';
-            setTimeout(() => {
-                feedback.remove();
-            }, 300);
+            setTimeout(() => feedback.remove(), 300);
         }, 3000);
     }
 });
 
 // CSS para o feedback (adicione ao seu CSS)
-const style = document.createElement('style');
-style.textContent = `
+const cookieStyle = document.createElement('style');
+cookieStyle.textContent = `
     .cookie-feedback {
         position: fixed;
         top: 100px;
@@ -409,39 +425,14 @@ style.textContent = `
         transition: all 0.3s ease;
         border-left: 4px solid;
     }
-    
-    .cookie-feedback.success {
-        border-left-color: #00a859;
-    }
-    
-    .cookie-feedback.success i {
-        color: #00a859;
-    }
-    
-    .cookie-feedback.info {
-        border-left-color: #0a4fff;
-    }
-    
-    .cookie-feedback.info i {
-        color: #0a4fff;
-    }
-    
-    .cookie-feedback i {
-        font-size: 20px;
-    }
-    
-    .cookie-feedback span {
-        font-size: 14px;
-        color: #2c3e50;
-    }
-    
+    .cookie-feedback.success { border-left-color: #00a859; }
+    .cookie-feedback.success i { color: #00a859; }
+    .cookie-feedback.info { border-left-color: #0a4fff; }
+    .cookie-feedback.info i { color: #0a4fff; }
+    .cookie-feedback i { font-size: 20px; }
+    .cookie-feedback span { font-size: 14px; color: #2c3e50; }
     @media (max-width: 768px) {
-        .cookie-feedback {
-            top: 80px;
-            right: 20px;
-            left: 20px;
-            padding: 12px 20px;
-        }
+        .cookie-feedback { top: 80px; right: 20px; left: 20px; padding: 12px 20px; }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(cookieStyle);
